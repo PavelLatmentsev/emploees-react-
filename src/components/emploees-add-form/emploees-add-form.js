@@ -14,16 +14,23 @@ class EmployeesAddForm extends Component {
             [e.target.name]: e.target.value
         })
     }
-    headnleDelete = (e) => {
+    headnleSubmit = (e) => {
         e.preventDefault();
-        this.props.addNewPerson({ ...this.state, id: Date.now(), increase: false })
+        if (this.state.name && this.state.salary) {
+            this.props.addNewPerson({ ...this.state, id: Date.now(), increase: false })
+        }
+        this.setState({
+            name: "",
+            salary: "",
+        }
+        )
     }
     render() {
         return (
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
                 <form
-                    className="add-form d-flex" onSubmit={this.headnleDelete}>
+                    className="add-form d-flex" onSubmit={this.headnleSubmit}>
                     <input type="text"
                         className="form-control new-post-label"
                         name="name"
