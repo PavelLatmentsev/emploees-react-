@@ -1,6 +1,6 @@
 import { render } from 'react-dom';
 import './emploees-add-form.css';
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 class EmployeesAddForm extends Component {
     constructor(props) {
         super(props);
@@ -49,7 +49,9 @@ class EmployeesAddForm extends Component {
                 </form>
             </div>
         )
+
     }
 }
 
 export default EmployeesAddForm;
+
